@@ -32,6 +32,7 @@
         <li><a href="#segmento">Segmento</a></li>
         <li><a href="#hallazgos">Hallazgos</a></li>
         <li><a href="#evidencia">Evidencia</a></li>
+        <li><a href="#encuesta">Participar</a></li>
         <li><a href="#equipo">Equipo</a></li>
       </ul>
     </nav>
@@ -251,6 +252,100 @@
         </div>
       </div>
     </section>
+
+    <section class="section section--tinted" id="encuesta" aria-labelledby="encuesta-title">
+      <div class="container">
+        <header class="section__header">
+          <span class="section__eyebrow">Instrumento interactivo</span>
+          <h2 class="section__title" id="encuesta-title">Sondeo de Percepción del Consumidor</h2>
+          <p class="section__lead">Comparte tu experiencia de compra de productos de aseo en la tienda ARA de la Avenida Pasoancho.</p>
+        </header>
+
+        <div class="survey">
+          <form class="survey-form" id="survey-form">
+            <div class="survey-form__grid">
+              <div class="survey-form__field">
+                <label for="survey-name">Nombre o iniciales <span>(opcional)</span></label>
+                <input id="survey-name" name="name" type="text" maxlength="60" autocomplete="off" placeholder="Puedes dejarlo en blanco">
+              </div>
+
+              <div class="survey-form__field">
+                <label for="survey-age">Rango de edad <span class="survey-form__required">Obligatorio</span></label>
+                <select id="survey-age" name="age" required>
+                  <option value="">Selecciona un rango</option>
+                  <option value="19-30">19 a 30 años</option>
+                  <option value="31-45">31 a 45 años</option>
+                  <option value="46-65">46 a 65 años</option>
+                </select>
+              </div>
+            </div>
+
+            <fieldset class="survey-form__group">
+              <legend>Al comprar productos de aseo del hogar en ARA, ¿qué prefieres? <span class="survey-form__required">Obligatorio</span></legend>
+              <div class="survey-form__options">
+                <label class="survey-option">
+                  <input type="radio" name="preference" value="Marca propia ARA" required>
+                  <span>Marca propia ARA</span>
+                </label>
+                <label class="survey-option">
+                  <input type="radio" name="preference" value="Marca tradicional reconocida" required>
+                  <span>Marca tradicional reconocida</span>
+                </label>
+                <label class="survey-option">
+                  <input type="radio" name="preference" value="Depende del precio o promoción" required>
+                  <span>Depende del precio o la promoción</span>
+                </label>
+              </div>
+            </fieldset>
+
+            <fieldset class="survey-form__group">
+              <legend>¿Qué factores influyen en tu decisión? <span>(puedes elegir varios)</span></legend>
+              <div class="survey-form__options">
+                <label class="survey-option">
+                  <input type="checkbox" name="factors" value="Confianza en la marca">
+                  <span>Confianza en la marca</span>
+                </label>
+                <label class="survey-option">
+                  <input type="checkbox" name="factors" value="Precio bajo">
+                  <span>Precio bajo</span>
+                </label>
+                <label class="survey-option">
+                  <input type="checkbox" name="factors" value="Cercanía o conveniencia">
+                  <span>Cercanía o conveniencia</span>
+                </label>
+                <label class="survey-option">
+                  <input type="checkbox" name="factors" value="Calidad o aroma">
+                  <span>Calidad o aroma comprobado</span>
+                </label>
+              </div>
+            </fieldset>
+
+            <div class="survey-form__field">
+              <label for="survey-comment">Comentario sobre tu experiencia en la sede Av. Pasoancho <span>(opcional)</span></label>
+              <textarea id="survey-comment" name="comment" rows="4" maxlength="1000" placeholder="¿Qué opinas sobre la variedad, calidad o precio de los productos?"></textarea>
+              <small class="survey-form__hint">No incluyas información sensible o datos de contacto.</small>
+            </div>
+
+            <label class="survey-consent">
+              <input type="checkbox" name="consent" required>
+              <span>Autorizo guardar esta respuesta con fines académicos. Entiendo que quedará guardada solo en este navegador y no se enviará a un servidor. <strong>Obligatorio</strong></span>
+            </label>
+
+            <button class="button button--primary survey-form__submit" type="submit">Guardar respuesta</button>
+            <p class="survey-form__feedback" id="survey-feedback" role="status" aria-live="polite"></p>
+          </form>
+
+          <aside class="survey-data" aria-label="Respuestas almacenadas">
+            <div>
+              <span class="survey-data__label">Recolección en este dispositivo</span>
+              <p id="survey-count" aria-live="polite">Cargando respuestas guardadas…</p>
+            </div>
+            <button class="survey-data__download" id="survey-download" type="button" disabled>Descargar respuestas CSV</button>
+          </aside>
+          <p class="survey__notice">Las respuestas se almacenan localmente en este navegador. No se sincronizan entre dispositivos ni se transmiten al equipo investigador. Si borras los datos del navegador, podrías perderlas; descarga el CSV para conservar una copia.</p>
+        </div>
+      </div>
+    </section>
   </main>
 
   <footer class="footer" id="equipo" aria-label="Créditos y bibliografía">
@@ -322,5 +417,6 @@
     </svg>
     <span>WhatsApp</span>
   </a>
+  <script src="script.js"></script>
 </body>
 </html>
