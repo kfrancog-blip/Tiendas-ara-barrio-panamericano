@@ -1,11 +1,17 @@
 :root {
-  --color-primary: #F36F21;
-  --color-secondary: #E30613;
-  --color-accent: #FFD100;
-  --color-dark: #1E293B;
-  --color-light: #F8FAFC;
+  --color-brand-orange: #F36F21;
+  --color-brand-red: #E30613;
+  --color-price-yellow: #FFD100;
+  --color-ink-dark: #0F172A;
+  --color-slate-muted: #475569;
+  --color-bg-light: #F8FAFC;
   --color-surface: #FFFFFF;
-  --color-muted: #64748B;
+  --color-primary: var(--color-brand-orange);
+  --color-secondary: var(--color-brand-red);
+  --color-accent: var(--color-price-yellow);
+  --color-dark: var(--color-ink-dark);
+  --color-light: var(--color-bg-light);
+  --color-muted: var(--color-slate-muted);
   --color-border: #E2E8F0;
   --shadow-sm: 0 8px 24px rgba(30, 41, 59, 0.08);
   --shadow-md: 0 18px 45px rgba(30, 41, 59, 0.12);
@@ -24,6 +30,17 @@
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 5.5rem;
+}
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(1rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 body {
@@ -184,7 +201,7 @@ h1, h2, h3 {
   overflow: hidden;
   background:
     linear-gradient(125deg, rgba(30, 41, 59, 0.96), rgba(30, 41, 59, 0.76)),
-    url("img/exhibicion-tienda.jpg") center/cover;
+    url("assets/img/cabeceras-tienda.jpg") center/cover;
   color: white;
   isolation: isolate;
 }
@@ -218,6 +235,7 @@ h1, h2, h3 {
   margin-inline: auto;
   padding: 4.5rem 0;
   text-align: center;
+  animation: fade-in-up 0.7s ease-out both;
 }
 
 .hero__badge {
@@ -373,6 +391,7 @@ h1, h2, h3 {
   padding: 0.45rem 0.75rem;
   background: var(--color-accent);
   color: var(--color-dark);
+  border: 1px dashed #5C4B00;
   border-radius: 0.35rem;
   font-family: "Poppins", sans-serif;
   font-size: 0.72rem;
@@ -636,9 +655,13 @@ h1, h2, h3 {
 }
 
 .bar-chart__row {
-  grid-template-columns: 4.6rem 1fr 2.5rem;
+  grid-template-columns: minmax(0, 0.9fr) minmax(3rem, 1.1fr);
   margin-bottom: 0.55rem;
   font-size: 0.72rem;
+}
+
+.bar-chart__row span {
+  line-height: 1.35;
 }
 
 .bar-chart__row div,
@@ -656,6 +679,18 @@ h1, h2, h3 {
   height: 100%;
   border-radius: inherit;
   background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
+}
+
+.bar-chart__row .bar-chart__fill--ara {
+  background: linear-gradient(90deg, var(--color-price-yellow), var(--color-brand-orange));
+}
+
+.bar-chart__note {
+  display: block;
+  margin-top: 0.25rem;
+  color: var(--color-muted);
+  font-size: 0.68rem;
+  line-height: 1.4;
 }
 
 .bar-chart__row b,
@@ -959,24 +994,22 @@ h1, h2, h3 {
   right: 1rem;
   bottom: 1rem;
   z-index: 200;
-  min-height: 3.25rem;
+  width: 3.5rem;
+  height: 3.5rem;
   display: inline-flex;
   align-items: center;
-  gap: 0.55rem;
-  padding: 0.7rem 0.9rem;
+  justify-content: center;
+  padding: 0;
   border-radius: 999px;
   background: #25D366;
   color: #0B4D2B;
   box-shadow: 0 10px 28px rgba(0, 0, 0, 0.25);
-  font-family: "Poppins", sans-serif;
-  font-size: 0.82rem;
-  font-weight: 800;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .whatsapp-button svg {
-  width: 1.45rem;
-  height: 1.45rem;
+  width: 1.75rem;
+  height: 1.75rem;
   fill: currentColor;
 }
 
@@ -1366,5 +1399,7 @@ h1, h2, h3 {
   *::before,
   *::after {
     transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
   }
 }

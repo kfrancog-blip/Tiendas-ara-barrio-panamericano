@@ -116,7 +116,7 @@
 
     try {
       exportResponses();
-      showFeedback("Se descargó el archivo CSV con las respuestas guardadas en este navegador.", "success");
+      showFeedback("Se inició la descarga del CSV con las respuestas guardadas en este navegador.", "success");
     } catch (error) {
       showFeedback("No se pudo generar la descarga. Inténtalo de nuevo en este navegador.", "error");
     }
